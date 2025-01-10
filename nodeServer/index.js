@@ -1,9 +1,10 @@
-const io = require('socket.io')(8000, {
-    cors: {
-        origin: "https://cat-chat22.netlify.app/",  // Allow connections from any origin (for development purposes)
-        methods: ["GET", "POST"]
-    }
+const io = require('socket.io')(server, {
+  cors: {
+    origin: "https://cat-chat-frontend.netlify.app", // Replace with your actual Netlify URL
+    methods: ["GET", "POST"]
+  }
 });
+
 
 const users = {};
 
