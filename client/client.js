@@ -1,4 +1,5 @@
-const socket = io('https://cat-chat-2gnx.onrender.com');
+const socket = io('https://cat-chat-2gnx.onrender.com');  // Use HTTPS URL
+
 
 const form = document.getElementById('send-container');
 const messageInput = document.getElementById('messegeInp');
