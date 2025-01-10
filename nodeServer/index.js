@@ -10,10 +10,11 @@ const server = http.createServer((req, res) => {
 // Initialize Socket.io with CORS handling
 const io = socketIo(server, {
     cors: {
-        origin: "*",  // Allow all origins for testing, restrict this in production
+        origin: "https://cat-chat22.netlify.app", // Allow Netlify frontend
         methods: ["GET", "POST"]
     }
 });
+
 
 // Object to store connected users
 const users = {};
