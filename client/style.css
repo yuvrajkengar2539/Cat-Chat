@@ -1,0 +1,62 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(32, 34, 36);
+}
+.logo{
+    display: block;
+    margin: auto;
+    width: 60px;
+    height: 50px;
+}
+h2{
+    color: white;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.container{
+    max-width: 955px;
+    
+    margin: auto;
+    height: 60vh;
+    padding: 33px;
+    overflow-y: auto;
+}
+
+.messege{
+background-color: rgba(80, 78, 245, 0.822);
+width: 24%;
+padding: 10px;
+margin: 17px 12px;
+border: 1px solid black;
+border-radius: 10px;
+color: white;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+}
+.left{
+float: left;
+clear: both;
+}
+
+.right{
+    float: right;
+    clear: both;
+}
+
+#send-container{
+    text-align: center;
+    max-width: 985px;
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+#messegeInp{
+    width: 80%;
+    border-radius: 6px;
+    height: 34px;
+}
+.btn{
+height: 34px;
+width: 50px;
+cursor: pointer;
+}
