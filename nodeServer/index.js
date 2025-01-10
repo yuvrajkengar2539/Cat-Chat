@@ -1,6 +1,6 @@
 const io = require('socket.io')(8000, {
     cors: {
-        origin: "*",  // Allow connections from any origin (for development purposes)
+        origin: "https://cat-chat22.netlify.app/",  // Allow connections from any origin (for development purposes)
         methods: ["GET", "POST"]
     }
 });
