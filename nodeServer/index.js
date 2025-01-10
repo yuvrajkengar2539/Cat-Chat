@@ -1,31 +1,22 @@
-const http = require('http');  // Import the http module
-const express = require('express');  // Import express
-const socketIo = require('socket.io');  // Import socket.io
+const users = {};
 
-const app = express();  // Create an express app
-const server = http.createServer(app);  // Create an HTTP server using express app
-const io = socketIo(server, {  // Initialize socket.io with the server
-    cors: {
-        origin: "https://cat-chat-frontend.netlify.app",  // Replace with your actual frontend URL
-        methods: ["GET", "POST"]
-    }
-});
-
-// Your existing code for socket.io events
 io.on('connection', (socket) => {
     console.log('A user connected');
 
+    // When a new user joins
+    socket.on('new-user-joined', (userName) => {
+        users[socket.id] = userName;
+        socket.broadcast.emit('user-joined', userName);
+    });
+
+    // When a user sends a message
     socket.on('send', (message) => {
-        io.emit('receive', { userName: 'User', message: message });
+        socket.broadcast.emit('receive', { userName: users[socket.id], message: message });
     });
 
+    // When a user disconnects
     socket.on('disconnect', () => {
-        console.log('A user disconnected');
+        socket.broadcast.emit('left', users[socket.id]);
+        delete users[socket.id];
     });
-});
-
-// Start the server on the specified port
-const port = process.env.PORT || 3000;
-server.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
 });
